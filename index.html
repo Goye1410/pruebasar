@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+    </head>
+
+    <body style="margin: 0; overflow: hidden;">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-assets>
+                <!-- Cargar todos los modelos GLB -->
+                <a-asset-item id="modelo1" src="assets/tortu.glb"></a-asset-item>
+                <a-asset-item id="modelo2" src="assets/conejo.glb"></a-asset-item>
+                <a-asset-item id="modelo3" src="assets/cuerpo.glb"></a-asset-item>
+                <a-asset-item id="modelo4" src="assets/ada.glb"></a-asset-item>
+                <a-asset-item id="modelo5" src="assets/capibara.glb"></a-asset-item>
+            </a-assets>
+
+            <!-- Marcador para el Modelo 1 -->
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/pattern-TORTU.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    gltf-model="#modelo1"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <!-- Marcador para el Modelo 2 -->
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/pattern-CONEJO.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    gltf-model="#modelo2"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <!-- Marcador para el Modelo 3 -->
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/pattern-CUERPO.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    gltf-model="#modelo3"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <!-- Marcador para el Modelo 4 -->
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/pattern-ADA.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    gltf-model="#modelo4"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <!-- Marcador para el Modelo 5 -->
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/pattern-CAPI.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    gltf-model="#modelo5"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
